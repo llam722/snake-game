@@ -1,34 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.querySelector("body");
+  body.style.marginTop = '50px';
+  // const gameTitle = document.querySelector("gameTitle");
+  // gameTitle.innerHTML = 'Louis and Matt\'s Snake game!'
+
   const board = document.querySelector("#board");
 
+  //Game Title Info!
+
+  const gameTitle = document.createElement("div");
+  gameTitle.setAttribute("id","gameTitle");
+  body.appendChild(gameTitle);
+  gameTitle.innerHTML = 'Louis and Matt\'s Snake game!'
+  gameTitle.style.textAlign = 'center';
+  gameTitle.style.fontSize = '35px';
+  gameTitle.style.color = '#5F34C4';
+  gameTitle.style.position = 'absolute'
+  gameTitle.style.marginTop = '-755px';
+  gameTitle.style.marginLeft = '65px';
+  gameTitle.style.fontWeight = '700';
+  gameTitle.style.fontFamily = 'Courier New';
+
   const head = new Head(board);
-  const apple = new Apple(board);
+  new Apple(board);
+
+  const score = document.createElement('div');
+  score.setAttribute("id","score");
+  body.appendChild(score);
+  score.style.fontSize = '25px';
+  score.style.fontWeight = '500';
+
+  const scoreText = document.createElement('div');
+  scoreText.setAttribute("id", "scoreText");
+  scoreText.innerHTML = 'Score: ';
+  score.appendChild(scoreText);
+
+  const currScore = document.createElement('div');
+  currScore.setAttribute("id","currScore");
+  currScore.innerHTML = 0;
+  score.appendChild(currScore);
+
 
   body.addEventListener("keydown", (e) => {
-    // if (head.length > 1){
-      // make sure the snake does not turn on itself 
-    // }
-    // else if {
       if (e.code === "ArrowLeft") {
+        if (head.currentDirection === 'right') return;
           console.log("pressed left");
           head.currentDirection = "left";
       }
       if (e.code === "ArrowRight") {
+        if (head.currentDirection === 'left') return;
           console.log("pressed right");
           head.currentDirection = "right";
       }
       if (e.code === "ArrowUp") {
+        if (head.currentDirection === 'down') return;
         console.log("pressed up");
         head.currentDirection = "up";
       }
       if (e.code === "ArrowDown") {
+        if (head.currentDirection === 'up') return;
         console.log("pressed down");
         head.currentDirection = "down";
       }
-    // }
   });
 });
+
 
 
 //MATT i got it

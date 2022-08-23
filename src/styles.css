@@ -17,12 +17,32 @@
 #board {
   height: 700px;
   width: 700px;
-  border: 1px black solid;
+  border: 2px black solid;
+  background-color: white;
   position: relative;
 }
 
 #apple {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   position: absolute;
+}
+
+#score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5px;
+  width: 700px;
+}
+
+#scoreText {
+  display: flex;
+}
+
+#currScore {
+  display: flex;
+  padding-left: 5px;
+  padding-top: 1px;
 }
